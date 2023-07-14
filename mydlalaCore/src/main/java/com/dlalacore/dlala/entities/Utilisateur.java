@@ -89,4 +89,12 @@ public class Utilisateur implements Serializable {
 		this.nom_utilisateur = nom;
 	}
 
+	@Override
+	public String toString() {
+		return "Utilisateur [id=" + id + ", nom_utilisateur=" + nom_utilisateur + ", prenom_utilisateur="
+		    + prenom_utilisateur + ", courriel_utilisateur=" + courriel_utilisateur + ", password_utilisateur="
+		    + password_utilisateur + "]";
+	}
+	
+
 }

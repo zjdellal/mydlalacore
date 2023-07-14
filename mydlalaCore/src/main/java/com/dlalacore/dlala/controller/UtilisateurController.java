@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,11 +32,22 @@ public class UtilisateurController {
 
 	}
 
+	// @RequestMapping(value = "/utilisateur/{id}")
+	// @ResponseBody
+	// public Utilisateur getUtilisateurByName(@PathVariable Integer id) {
+	// System.out.println("user");
+	// return repositorie.findById(id).orElseThrow(() -> new
+	// UtilisateurNotFoundException(id));
+	// }
+
 	@RequestMapping(value = "/utilisateur/{id}")
 	@ResponseBody
-	public Utilisateur getUtilisateurByName(@PathVariable Integer id) {
-		System.out.println("user");
-		return repositorie.findById(id).orElseThrow(() -> new UtilisateurNotFoundException(id));
+	public ResponseEntity<Utilisateur> getUtilisateurByName(@PathVariable Integer id) {
+		Utilisateur user = repositorie.findById(id).get();
+		if (user == null)
+			return new ResponseEntity<Utilisateur>(HttpStatus.NOT_FOUND);
+		else
+			return new ResponseEntity<Utilisateur>(user, HttpStatus.OK);
 	}
 
 	// pas pour le moment
@@ -62,7 +74,7 @@ public class UtilisateurController {
 
 	@RequestMapping(value = "majUser/{id}")
 	public Utilisateur replaceUtilisateur(@RequestBody Utilisateur majUser, @PathVariable Integer id) {
-System.out.println("put request");
+		System.out.println("put request");
 		return repositorie.findById(id).map(user -> {
 			user.setNom_utilisateur(majUser.getNom_utilisateur());
 			user.setPrenom_utilisateur(majUser.getPrenom_utilisateur());
@@ -73,7 +85,17 @@ System.out.println("put request");
 		});
 
 	}
-
-
+	
+	@RequestMapping(value="connect/{nom}/{password}")
+	@ResponseBody
+	public ResponseEntity<Utilisateur> connect(@PathVariable String nom, @PathVariable String password) {
+		Utilisateur user  = this.repositorie.Connect(password, nom);
+		if (user == null)
+			return new ResponseEntity<Utilisateur>(HttpStatus.NOT_FOUND);
+		else
+			return new ResponseEntity<Utilisateur>(user, HttpStatus.OK);
+		
+		
+	}
 
 }
