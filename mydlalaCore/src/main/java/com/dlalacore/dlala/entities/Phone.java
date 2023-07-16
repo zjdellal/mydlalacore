@@ -50,12 +50,15 @@ public class Phone implements Serializable {
 
 	@Column(name = "date_achat_phone")
 	private String	dateAchat;
-	
+
 	@Column(name = "date_vente_phone")
 	private String	dateVente;
 
 	@Column(name = "date_maj_phone")
 	private String	dateMaj;
+
+	@Column(name = "statut_phone")
+	private String	statutPhone;
 
 	public Integer getId() {
 		return id;
@@ -113,7 +116,7 @@ public class Phone implements Serializable {
 		this.prixAchat = prixAchat;
 	}
 
-	public String getPrixVentes() {
+	public String getPrixVente() {
 		return prixVentes;
 	}
 
@@ -160,6 +163,16 @@ public class Phone implements Serializable {
 	public void setDateMaj(String dateMaj) {
 		this.dateMaj = dateMaj;
 	}
+	
+	
+
+	public String getStatutPhone() {
+		return statutPhone;
+	}
+
+	public void setStatutPhone(String statutPhone) {
+		this.statutPhone = statutPhone;
+	}
 
 	@Override
 	public String toString() {
@@ -168,9 +181,5 @@ public class Phone implements Serializable {
 		    + ", coutReparation=" + coutReparation + ", cotePhone=" + cotePhone + ", dateAchat=" + dateAchat
 		    + ", dateVente=" + dateVente + ", dateMaj=" + dateMaj + "]";
 	}
-	
-	
 
-	
-	
 }
