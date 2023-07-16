@@ -28,7 +28,7 @@ public class Phones implements Serializable {
 	private String	model;
 
 	@Column(name = "etat_phone")
-	private String		etat;
+	private String	etat;
 
 	@Column(name = "batterie_phone")
 	private String	etatBatterie;
@@ -46,7 +46,16 @@ public class Phones implements Serializable {
 	private String	coutReparation;
 
 	@Column(name = "cote_phone")
-	private String		cotePhone;
+	private String	cotePhone;
+
+	@Column(name = "date_achat_phone")
+	private String	dateAchat;
+	
+	@Column(name = "date_vente_phone")
+	private String	dateVente;
+
+	@Column(name = "date_maj_phone")
+	private String	dateMaj;
 
 	public Integer getId() {
 		return id;
@@ -127,7 +136,31 @@ public class Phones implements Serializable {
 	public void setCotePhone(String cotePhone) {
 		this.cotePhone = cotePhone;
 	}
-	
+
+	public String getDateAchat() {
+		return dateAchat;
+	}
+
+	public void setDateAchat(String dateAchat) {
+		this.dateAchat = dateAchat;
+	}
+
+	public String getDateVente() {
+		return dateVente;
+	}
+
+	public void setDateVente(String dateVente) {
+		this.dateVente = dateVente;
+	}
+
+	public String getDateMaj() {
+		return dateMaj;
+	}
+
+	public void setDateMaj(String dateMaj) {
+		this.dateMaj = dateMaj;
+	}
+
 	
 	
 }
