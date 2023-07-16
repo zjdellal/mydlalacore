@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dlalacore.dlala.entities.Phones;
+import com.dlalacore.dlala.entities.Phone;
 import com.dlalacore.dlala.reposetories.PhonesRepositorie;
 
 @RestController
@@ -20,13 +20,13 @@ public class PhonesController {
 	private PhonesRepositorie repositorie;
 	
 	@GetMapping(value = "/phones")
-	public @ResponseBody ResponseEntity<List<Phones>> getPhones() {
+	public @ResponseBody ResponseEntity<List<Phone>> getPhones() {
 		System.out.println("allo liste phones");
-		List<Phones> phones  = repositorie.findAll();
+		List<Phone> phones  = repositorie.findAll();
 		if (phones == null)
-			return new ResponseEntity<List<Phones>>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<List<Phone>>(HttpStatus.NOT_FOUND);
 		else
-			return new ResponseEntity<List<Phones>>(phones, HttpStatus.OK);
+			return new ResponseEntity<List<Phone>>(phones, HttpStatus.OK);
 
 	}
 

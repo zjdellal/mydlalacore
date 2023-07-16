@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "phones")
-public class Phones implements Serializable {
+public class Phone implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_phone")
@@ -160,6 +160,16 @@ public class Phones implements Serializable {
 	public void setDateMaj(String dateMaj) {
 		this.dateMaj = dateMaj;
 	}
+
+	@Override
+	public String toString() {
+		return "Phone [id=" + id + ", marque=" + marque + ", model=" + model + ", etat=" + etat + ", etatBatterie="
+		    + etatBatterie + ", accessoires=" + accessoires + ", prixAchat=" + prixAchat + ", prixVentes=" + prixVentes
+		    + ", coutReparation=" + coutReparation + ", cotePhone=" + cotePhone + ", dateAchat=" + dateAchat
+		    + ", dateVente=" + dateVente + ", dateMaj=" + dateMaj + "]";
+	}
+	
+	
 
 	
 	
