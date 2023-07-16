@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,7 +26,8 @@ public class UtilisateurController {
 	@Autowired()
 	private UtilisateurReposetorie repositorie;
 
-	@PostMapping(value = "/utilisateurs")
+	@GetMapping(value = "/utilisateurs")
+	
 	public @ResponseBody List<Utilisateur> getUtilisateurs() {
 		System.out.println("allo liste user");
 		return repositorie.findAll();

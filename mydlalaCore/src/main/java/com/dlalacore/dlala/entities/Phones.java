@@ -28,7 +28,7 @@ public class Phones implements Serializable {
 	private String	model;
 
 	@Column(name = "etat_phone")
-	private Enum		etat;
+	private String		etat;
 
 	@Column(name = "batterie_phone")
 	private String	etatBatterie;
@@ -46,7 +46,7 @@ public class Phones implements Serializable {
 	private String	coutReparation;
 
 	@Column(name = "cote_phone")
-	private Enum		cotePhone;
+	private String		cotePhone;
 
 	public Integer getId() {
 		return id;
@@ -72,11 +72,11 @@ public class Phones implements Serializable {
 		this.model = model;
 	}
 
-	public Enum getEtat() {
+	public String getEtat() {
 		return etat;
 	}
 
-	public void setEtat(Enum etat) {
+	public void setEtat(String etat) {
 		this.etat = etat;
 	}
 
@@ -120,11 +120,11 @@ public class Phones implements Serializable {
 		this.coutReparation = coutReparation;
 	}
 
-	public Enum getCotePhone() {
+	public String getCotePhone() {
 		return cotePhone;
 	}
 
-	public void setCotePhone(Enum cotePhone) {
+	public void setCotePhone(String cotePhone) {
 		this.cotePhone = cotePhone;
 	}
 	
