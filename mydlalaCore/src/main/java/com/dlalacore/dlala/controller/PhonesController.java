@@ -36,25 +36,7 @@ public class PhonesController {
 	@RequestMapping(value = "addPhone")
 
 	public Phone putPhone(@RequestBody Phone phone) {
-		System.out.println("Put new phone");
-//		return repositorie.findById(phone.getId()).map(p -> {
-//			p.setMarque(phone.getMarque());
-//			p.setModel(phone.getModel());
-//			// p.setEtat(phone.getEtat());
-//			// p.setEtatBatterie(phone.getEtatBatterie());
-//			// p.setAccessoires(phone.getAccessoires());
-//			// p.setPrixAchat(phone.getPrixAchat());
-//			// p.setPrixVente(phone.getPrixVente());
-//			// p.setCoutReparation(phone.getCotePhone());
-//			// p.setCotePhone(phone.getCotePhone());
-//			// p.setDateAchat(phone.getDateAchat());
-//			// p.setDateVente(phone.getDateVente());
-//			// p.setDateMaj(phone.getDateMaj());
-//			return repositorie.save(p);
-//		}).orElseGet(() -> {
-//
-//			
-//		});
+
 		return repositorie.save(phone);
 
 	}
