@@ -120,7 +120,7 @@ public class Phone implements Serializable {
 		return prixVentes;
 	}
 
-	public void setPrixVentes(String prixVentes) {
+	public void setPrixVente(String prixVentes) {
 		this.prixVentes = prixVentes;
 	}
 
