@@ -1,12 +1,16 @@
 package com.dlalacore.dlala.entities;
 
 import java.io.Serializable;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -59,6 +63,9 @@ public class Phone implements Serializable {
 
 	@Column(name = "statut_phone")
 	private String	statutPhone;
+	
+
+
 
 	public Integer getId() {
 		return id;
