@@ -1,18 +1,20 @@
 package com.dlalacore.dlala.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @SuppressWarnings("serial")
 @Entity
@@ -23,49 +25,50 @@ public class Phone implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_phone")
 	@SequenceGenerator(name = "id_phone", sequenceName = "phones_id_phone_seq", schema = "public", allocationSize = 1)
 	@Column(name = "id_phone", updatable = false, nullable = false, columnDefinition = "UUID", unique = true)
-	private Integer	id;
+	private Integer																							id;
 
 	@Column(name = "marque_phone")
-	private String	marque;
+	private String																							marque;
 
 	@Column(name = "model_phone")
-	private String	model;
+	private String																							model;
 
 	@Column(name = "etat_phone")
-	private String	etat;
+	private String																							etat;
 
 	@Column(name = "batterie_phone")
-	private String	etatBatterie;
+	private String																							etatBatterie;
 
 	@Column(name = "accessoires_phone")
-	private String	accessoires;
+	private String																							accessoires;
 
 	@Column(name = "prix_achat_phone")
-	private String	prixAchat;
+	private String																							prixAchat;
 
 	@Column(name = "prix_vente_phone")
-	private String	prixVentes;
+	private String																							prixVentes;
 
 	@Column(name = "cout_rep_article")
-	private String	coutReparation;
+	private String																							coutReparation;
 
 	@Column(name = "cote_phone")
-	private String	cotePhone;
+	private String																							cotePhone;
 
 	@Column(name = "date_achat_phone")
-	private String	dateAchat;
+	private String																							dateAchat;
 
 	@Column(name = "date_vente_phone")
-	private String	dateVente;
+	private String																							dateVente;
 
 	@Column(name = "date_maj_phone")
-	private String	dateMaj;
+	private String																							dateMaj;
 
 	@Column(name = "statut_phone")
-	private String	statutPhone;
-	
+	private String																							statutPhone;
 
-
+	@JsonIgnore
+	 @OneToMany(mappedBy="phone")
+   private List<Fiche> fiches =  new ArrayList<Fiche>();
 
 	public Integer getId() {
 		return id;
@@ -170,8 +173,6 @@ public class Phone implements Serializable {
 	public void setDateMaj(String dateMaj) {
 		this.dateMaj = dateMaj;
 	}
-	
-	
 
 	public String getStatutPhone() {
 		return statutPhone;
@@ -179,6 +180,22 @@ public class Phone implements Serializable {
 
 	public void setStatutPhone(String statutPhone) {
 		this.statutPhone = statutPhone;
+	}
+
+	public String getPrixVentes() {
+		return prixVentes;
+	}
+
+	public void setPrixVentes(String prixVentes) {
+		this.prixVentes = prixVentes;
+	}
+
+	public List<Fiche> getFiches() {
+		return fiches;
+	}
+
+	public void setFiches(List<Fiche> fiches) {
+		this.fiches = fiches;
 	}
 
 	@Override

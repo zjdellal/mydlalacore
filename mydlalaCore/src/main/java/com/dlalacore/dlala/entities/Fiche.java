@@ -1,5 +1,7 @@
 package com.dlalacore.dlala.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,11 +14,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "fiche_phone")
-public class Fiche {
+public class Fiche implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id")
 	@SequenceGenerator(name = "id", sequenceName = "phones_id_phone_seq", schema = "public", allocationSize = 1)
@@ -25,10 +26,9 @@ public class Fiche {
 	
 
 	@ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
-  @JoinColumn(name="phone_id", nullable=false)
-
-
-  private Phone Phone;
+  @JoinColumn(name="id_phone", nullable=true)
+  private Phone phone;
+	
   
   @Column(name="titre_fiche")
   private String titre;
@@ -55,11 +55,11 @@ public class Fiche {
 	}
 
 	public Phone getPhone() {
-		return Phone;
+		return phone;
 	}
 
 	public void setPhone(Phone phone) {
-		Phone = phone;
+		phone = phone;
 	}
 
 	public String getTitre() {
