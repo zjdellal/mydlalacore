@@ -34,13 +34,7 @@ public class UtilisateurController {
 
 	}
 
-	// @RequestMapping(value = "/utilisateur/{id}")
-	// @ResponseBody
-	// public Utilisateur getUtilisateurByName(@PathVariable Integer id) {
-	// System.out.println("user");
-	// return repositorie.findById(id).orElseThrow(() -> new
-	// UtilisateurNotFoundException(id));
-	// }
+	
 
 	@RequestMapping(value = "/utilisateur/{id}")
 	@ResponseBody
