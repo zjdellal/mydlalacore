@@ -25,50 +25,56 @@ public class Phone implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_phone")
 	@SequenceGenerator(name = "id_phone", sequenceName = "phones_id_phone_seq", schema = "public", allocationSize = 1)
 	@Column(name = "id_phone", updatable = false, nullable = false, columnDefinition = "UUID", unique = true)
-	private Integer																							id;
+	private Integer			id;
 
 	@Column(name = "marque_phone")
-	private String																							marque;
+	private String			marque;
 
 	@Column(name = "model_phone")
-	private String																							model;
+	private String			model;
 
 	@Column(name = "etat_phone")
-	private String																							etat;
+	private String			etat;
 
 	@Column(name = "batterie_phone")
-	private String																							etatBatterie;
+	private String			etatBatterie;
 
 	@Column(name = "accessoires_phone")
-	private String																							accessoires;
+	private String			accessoires;
 
 	@Column(name = "prix_achat_phone")
-	private String																							prixAchat;
+	private String			prixAchat;
 
 	@Column(name = "prix_vente_phone")
-	private String																							prixVentes;
+	private String			prixVentes;
 
 	@Column(name = "cout_rep_article")
-	private String																							coutReparation;
+	private String			coutReparation;
 
 	@Column(name = "cote_phone")
-	private String																							cotePhone;
+	private String			cotePhone;
 
 	@Column(name = "date_achat_phone")
-	private String																							dateAchat;
+	private String			dateAchat;
 
 	@Column(name = "date_vente_phone")
-	private String																							dateVente;
+	private String			dateVente;
 
 	@Column(name = "date_maj_phone")
-	private String																							dateMaj;
+	private String			dateMaj;
 
 	@Column(name = "statut_phone")
-	private String																							statutPhone;
+	private String			statutPhone;
+
+	@Column(name = "imei_phone")
+	private String			imeiPhone;
+
+	@Column(name = "nomodel_phone")
+	private String			noModelPhone;
 
 	@JsonIgnore
-	 @OneToMany(mappedBy="phone")
-   private List<Fiche> fiches =  new ArrayList<Fiche>();
+	@OneToMany(mappedBy = "phone")
+	private List<Fiche>	fiches	= new ArrayList<Fiche>();
 
 	public Integer getId() {
 		return id;
@@ -196,6 +202,24 @@ public class Phone implements Serializable {
 
 	public void setFiches(List<Fiche> fiches) {
 		this.fiches = fiches;
+	}
+	
+	
+
+	public String getImeiPhone() {
+		return imeiPhone;
+	}
+
+	public void setImeiPhone(String imeiPhone) {
+		this.imeiPhone = imeiPhone;
+	}
+
+	public String getNoModelPhone() {
+		return noModelPhone;
+	}
+
+	public void setNoModelPhone(String noModelPhone) {
+		this.noModelPhone = noModelPhone;
 	}
 
 	@Override
