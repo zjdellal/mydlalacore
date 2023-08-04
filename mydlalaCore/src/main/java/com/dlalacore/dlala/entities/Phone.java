@@ -227,7 +227,8 @@ public class Phone implements Serializable {
 		return "Phone [id=" + id + ", marque=" + marque + ", model=" + model + ", etat=" + etat + ", etatBatterie="
 		    + etatBatterie + ", accessoires=" + accessoires + ", prixAchat=" + prixAchat + ", prixVentes=" + prixVentes
 		    + ", coutReparation=" + coutReparation + ", cotePhone=" + cotePhone + ", dateAchat=" + dateAchat
-		    + ", dateVente=" + dateVente + ", dateMaj=" + dateMaj + "]";
+		    + ", dateVente=" + dateVente + ", dateMaj=" + dateMaj + ", statutPhone=" + statutPhone + ", imeiPhone="
+		    + imeiPhone + ", noModelPhone=" + noModelPhone + ", fiches=" + fiches + "]";
 	}
 
 }
