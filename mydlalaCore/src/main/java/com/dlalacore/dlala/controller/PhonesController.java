@@ -1,5 +1,6 @@
 package com.dlalacore.dlala.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,11 +50,12 @@ public class PhonesController {
 			p.setAccessoires(phone.getAccessoires());
 			p.setPrixAchat(phone.getPrixAchat());
 			p.setPrixVente(phone.getPrixVente());
-			p.setCoutReparation(phone.getCotePhone());
+			p.setCoutReparation(phone.getCoutReparation());
 			p.setCotePhone(phone.getCotePhone());
 			p.setDateAchat(phone.getDateAchat());
 			p.setDateVente(phone.getDateVente());
-			p.setDateMaj(phone.getDateMaj());
+			p.setDateMaj(String.valueOf(LocalDate.now()));
+			p.setStatutPhone(phone.getStatutPhone());
 			return repositorie.save(p);
 		}).orElseGet(() -> {
 
