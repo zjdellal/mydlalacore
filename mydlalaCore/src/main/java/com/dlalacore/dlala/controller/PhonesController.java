@@ -54,6 +54,8 @@ public class PhonesController {
 			p.setCotePhone(phone.getCotePhone());
 			p.setDateAchat(phone.getDateAchat());
 			p.setDateVente(phone.getDateVente());
+			p.setImeiPhone(phone.getImeiPhone());
+			p.setNoModelPhone(phone.getNoModelPhone());
 			p.setDateMaj(String.valueOf(LocalDate.now()));
 			p.setStatutPhone(phone.getStatutPhone());
 			return repositorie.save(p);
