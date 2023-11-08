@@ -1,5 +1,6 @@
 package com.dlalacore.dlala.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,11 +8,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dlalacore.dlala.entities.Fiche;
+import com.dlalacore.dlala.entities.Phone;
 import com.dlalacore.dlala.reposetories.FicheRepositorie;
 
 @RestController
@@ -40,6 +43,25 @@ public class FicheController {
 			return new ResponseEntity<List<Fiche>>(HttpStatus.NOT_FOUND);
 		else
 			return new ResponseEntity<List<Fiche>>(fiches, HttpStatus.OK);
+
+	}
+	
+	@RequestMapping(value = "addFiche")
+
+	public Fiche putFiche(@RequestBody Fiche fiche) {
+
+		return repositorie.findById(fiche.getId()).map(p -> {
+			p.setCout(fiche.getCout());
+			p.setDate(fiche.getDate());
+			p.setPhone(fiche.getPhone());
+			p.setTitre(fiche.getTitre());
+			p.setDetails(fiche.getDetails());
+			return repositorie.save(p);
+		}).orElseGet(() -> {
+
+			return repositorie.save(fiche);
+
+		});
 
 	}
 }

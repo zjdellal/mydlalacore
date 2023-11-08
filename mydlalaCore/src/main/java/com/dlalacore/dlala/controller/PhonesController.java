@@ -6,7 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,7 +25,7 @@ public class PhonesController {
 
 	@GetMapping(value = "/phones")
 	public @ResponseBody ResponseEntity<List<Phone>> getPhones() {
-		System.out.println("allo liste phones");
+		
 		List<Phone> phones = repositorie.findAll();
 		if (phones == null)
 			return new ResponseEntity<List<Phone>>(HttpStatus.NOT_FOUND);
@@ -66,5 +68,11 @@ public class PhonesController {
 		});
 
 	}
+	
+	@RequestMapping(value = "deletePhone/{id}")
+	public @ResponseBody void deleteById(@PathVariable("id") Integer id) {
+		repositorie.deleteById(id);
+	}
+
 
 }
