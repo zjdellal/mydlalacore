@@ -58,8 +58,8 @@ public class Fiche implements Serializable {
 		return phone;
 	}
 
-	public void setPhone(Phone phone) {
-		phone = phone;
+	public void setPhone(Phone pPhone) {
+		phone = pPhone;
 	}
 
 	public String getTitre() {

@@ -46,7 +46,7 @@ public class FicheController {
 
 	}
 	
-	@RequestMapping(value = "addFiche")
+	@RequestMapping(value = "/addFiche")
 
 	public Fiche putFiche(@RequestBody Fiche fiche) {
 
