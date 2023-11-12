@@ -64,4 +64,9 @@ public class FicheController {
 		});
 
 	}
+	
+	@RequestMapping(value = "deleteFiche/{id}")
+	public @ResponseBody void deleteById(@PathVariable("id") Integer id) {
+		repositorie.deleteFiche(id);
+	}
 }
