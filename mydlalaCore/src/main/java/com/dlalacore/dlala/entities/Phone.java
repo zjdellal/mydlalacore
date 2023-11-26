@@ -3,8 +3,8 @@ package com.dlalacore.dlala.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -73,7 +73,7 @@ public class Phone implements Serializable {
 	private String			noModelPhone;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "phone")
+	@OneToMany(mappedBy = "phone", cascade = CascadeType.REMOVE, orphanRemoval = true)
 	private List<Fiche>	fiches	= new ArrayList<Fiche>();
 
 	public Integer getId() {
