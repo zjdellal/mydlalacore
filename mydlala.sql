@@ -18,16 +18,21 @@ CREATE TABLE "public"."fiche_phone" (
 ) WITH (oids = false);
 
 INSERT INTO "fiche_phone" ("id", "id_phone", "titre_fiche", "date_fiche", "cout_fiche", "details_fiche") VALUES
-(1,	2,	'Vérification GS 23',	'2023-07-22',	'20',	'changement cover glass + nettoayeg de poussières'),
-(2,	2,	'Remplacement de batterie',	'2023-07-23',	'50',	'rien a signaler'),
-(15,	2,	'test troits',	'2023-11-12',	'5',	''),
 (18,	17,	'Remplacement de la camera arriere',	'2023-11-19',	'0',	'Remplacement de la pièce à partir d''un iphone xr brisé 
 donc la pièce est d''origine.'),
-(19,	17,	'Remplacement de ecran ',	'2023-11-19',	'19',	'Activation de true tone et conservation du face ID .');
+(19,	17,	'Remplacement de ecran ',	'2023-11-19',	'19',	'Activation de true tone et conservation du face ID .'),
+(42,	41,	'Changement d''écran',	'2023-11-26',	'30',	'Problème au niveau du touch screen qui par moment commence à déconner'),
+(45,	44,	'Surpirse à l''ouverture',	'2023-11-26',	'0',	'- j''ai trouvé des nappes coller avec du scotch. 
+- manque le métal qui sécurise les nappes
+- j''ai en inventaire les pièces nécessaire pour une optimisation des nappes'),
+(40,	39,	'Note sur l''état de l''iphone',	'2023-11-26',	'0',	'- Vitre arrière brisée
+- Face ID non fonctionnel
+- Vitre avant brisée + true tone non disponible
+ - Maj: activation du true tone');
 
 DROP TABLE IF EXISTS "phones";
 DROP SEQUENCE IF EXISTS phones_id_phone_seq;
-CREATE SEQUENCE phones_id_phone_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 19 CACHE 1;
+CREATE SEQUENCE phones_id_phone_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 48 CACHE 1;
 
 CREATE TABLE "public"."phones" (
     "id_phone" integer DEFAULT nextval('phones_id_phone_seq') NOT NULL,
@@ -50,9 +55,11 @@ CREATE TABLE "public"."phones" (
 ) WITH (oids = false);
 
 INSERT INTO "phones" ("id_phone", "marque_phone", "model_phone", "etat_phone", "batterie_phone", "accessoires_phone", "prix_achat_phone", "prix_vente_phone", "cout_rep_article", "cote_phone", "date_achat_phone", "date_vente_phone", "date_maj_phone", "statut_phone", "imei_phone", "nomodel_phone") VALUES
-(12,	'Alcatel',	'Test',	'neuf',	'50%',	'Boite',	'100',	'0',	'50',	'',	'2023-07-16',	'2023-07-16',	'2023-07-16',	'disponible',	NULL,	NULL),
-(2,	'Samsung',	'Galaxy S23',	'Neuf',	'90 %',	'Aucun',	'150',	'280',	'50',	'Bonne affaire',	'2023-07-09',	'2023-07-10',	'2023-11-07',	'DISPONIBLE',	'555555',	'4521542'),
-(17,	'Apple',	'Iphone XR',	NULL,	'92%',	'Aucun',	'80',	'0',	NULL,	NULL,	'2023-11-14',	'2023-11-14',	'2023-11-19',	'DISPONIBLE',	'353073598079853',	'NT302LL/A');
+(41,	'Apple',	'iphone X/256go',	'NEUF',	'85',	'Aucun',	'75',	'0',	NULL,	NULL,	'2023-11-20',	NULL,	'2023-11-26',	'DISPONIBLE',	'354860096143952',	'A1901'),
+(44,	'Apple',	'Iphone XR red /64go',	'MOYEN',	'84',	'Aucun',	'90',	'0',	NULL,	NULL,	'2023-11-16',	NULL,	'2023-11-26',	'DISPONIBLE',	'356422106333608',	'A1984'),
+(39,	'Apple',	'Iphone XR blanc /64 go',	'MAUVAISE_ÉTAT',	'84',	'Aucun',	'50',	'0',	NULL,	NULL,	'2023-11-15',	NULL,	'2023-11-26',	'DISPONIBLE',	'356430102650545',	'A1984'),
+(46,	'Apple',	'Iphone 11 black /64go',	'NEUF',	'81',	'Aucun',	'90',	'0',	NULL,	NULL,	'2023-11-27',	NULL,	'2023-11-27',	'DISPONIBLE',	'352903112113732',	'A2111'),
+(17,	'Apple',	'Iphone XR noir/64go',	'NEUF',	'92%',	'Aucun',	'80',	'0',	NULL,	NULL,	'2023-11-14',	'2023-11-14',	'2023-11-27',	'DISPONIBLE',	'353073598079853',	'NT302LL/A');
 
 DROP TABLE IF EXISTS "utilisateurs";
 DROP SEQUENCE IF EXISTS utilisateurs_id_utilisateur_seq;
@@ -75,4 +82,4 @@ INSERT INTO "utilisateurs" ("id_utilisateur", "nom_utilisateur", "prenom_utilisa
 (43,	'Samw Gamgee',	'ring bearer',	'zak@dj.test',	'test',	NULL),
 (45,	NULL,	NULL,	NULL,	NULL,	NULL);
 
--- 2023-11-24 21:09:35.934247-05
+-- 2023-11-27 22:31:48.91996-05
